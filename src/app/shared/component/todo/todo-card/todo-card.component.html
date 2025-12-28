@@ -1,0 +1,17 @@
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <strong>{{todoObj.todoItem}}</strong>
+        <div>
+            <button
+            (click)="onEdit()"
+            class="mr-2" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+        (click)="onRemove()"
+        mat-mini-fab color="warn" aria-label="Example icon button with a menu icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+        </div>
+    </li>
+</ul>

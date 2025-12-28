@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-body">
+        <h2>{{passObj.fullname}}</h2>
+        <div class="form-group">
+            <input #inputRef [disabled]="!isEditMode" class="form-control" [value]="passObj.fullname">
+        </div>
+        <p>CheckIn Date : {{passObj.checkInDate ? (passObj.checkInDate | date) : 'Not checked in yet!'}}</p>
+        <p>Children : {{passObj.children?.length || 0}}</p>
+        <button *ngIf="!isEditMode" (click)="isEditMode = true" class="mr-2" mat-raised-button
+            color="primary">Edit</button>
+        <button *ngIf="isEditMode" (click)="onUpdate()" class="mr-2" mat-raised-button color="primary">Done</button>
+        <button [disabled]="isEditMode" (click)="onRemove()" mat-raised-button color="warn">Remove</button>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="card h-100">
+    <div class="card-body">
+        <h2>{{prodObj.title}}</h2>
+        <p>{{prodObj.content}} <strong>{{onChange}}</strong></p>
+    </div>
+    <div class="d-flex justify-content-between m-2">
+        <button (click)="onProc()" mat-raised-button color="primary">Processing</button>
+        <button (click)="onDis()" mat-raised-button color="primary">Dispached</button>
+        <button (click)="onDeli()" mat-raised-button color="primary">Delivered</button>
+    </div>
+</div>

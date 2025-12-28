@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-12 text-center">
+        <span>Add Student</span>
+        <button (click)="onOpen()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
+<div class="row mt-5" *ngIf="stdArr.length>0; else noData">
+    <div class="col-md-8 offset-md-2">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>
+                            Edit
+                        </th>
+                        <th>
+                            Remove
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let std of stdArr; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{std.fname}} {{std.lname}}</td>
+                        <td>{{std.email}}</td>
+                        <td>{{std.contact}}</td>
+                        <td>
+                            <button (click)="onEdit(std)" class="mr-2" mat-mini-fab color="primary"
+                                aria-label="Example icon button with a menu icon">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
+                        <td>
+                            <button (click)="onRemove(std)" class="mr-2" mat-mini-fab color="warn"
+                                aria-label="Example icon button with a menu icon">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #noData>
+    <p class="alert alert-info">There is no student details...</p>
+</ng-template>

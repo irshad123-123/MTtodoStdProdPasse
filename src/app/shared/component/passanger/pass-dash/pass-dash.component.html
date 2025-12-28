@@ -1,0 +1,21 @@
+<div class="row mb-3">
+    <div class="col-md-6 offset-md-3">
+        <h2>{{checkedIn.length}}/{{passArr.length}}</h2>
+        <ul class="list-group" *ngIf="passArr.length>0;else noData">
+            <li class="list-group-item" *ngFor="let pass of passArr">
+                {{pass.fullname}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 offset-md-3 mb-3" *ngFor="let pass of passArr">
+        <app-pass-card
+        (emitData)="getFlag($event)"
+        [passObj]="pass"
+        ></app-pass-card>
+    </div>
+</div>
+<ng-template #noData>
+    <p class="alert alert-info">There is no passanger...</p>
+</ng-template>
